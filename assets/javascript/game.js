@@ -125,9 +125,9 @@ function resetNums() {
 
 
 // Assigns a random number between 1-12 to each crystal
-$("#rrCrystal").load("load", function() {
+$("#rCrystal").load("load", function() {
 	rCrystal = Math.floor((Math.random() * 12) + 1);    
-    $("#rrCrystal").html("<h1>" + rCrystal + "</h1>");
+    $("#rCrystal").html("<h1>" + rCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
@@ -165,11 +165,6 @@ console.log(gCrystal);
 // reset random number 19-20
 
 // reset crystal values
-
-
-
-
-
 
 
 // main process ////////////////////////////////
