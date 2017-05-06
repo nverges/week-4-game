@@ -28,25 +28,25 @@ $("#randomNum").load("load", function() {
 
 // Assign a random number between 1-12 to each crystal
 
-$("#rrCrystal").load("load", function() {
+$("#rCrystal").load("load", function() {
 	rCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#rrCrystal").html("<h1>" + rCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#bbCrystal").load("load", function() {
+$("#bCrystal").load("load", function() {
 	bCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#bbCrystal").html("<h1>" + bCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#yyCrystal").load("load", function() {
+$("#yCrystal").load("load", function() {
 	yCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#yyCrystal").html("<h1>" + yCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#ggCrystal").load("load", function() {
+$("#gCrystal").load("load", function() {
 	gCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#ggCrystal").html("<h1>" + gCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
@@ -98,7 +98,7 @@ $("#gCrystal").on("click", function() {
 
 
 
-// roundComplete function
+// function ends round, adjusts score
 function roundComplete() {
 
 	// player wins if total score = random number
@@ -106,48 +106,55 @@ function roundComplete() {
 		winCount++;
 		$("#winCount").html(winCount);
 		resetNums();
+	}
 
-	// player loses if total score > random number
-	} else if (totalScore > rdmNum) {
-			lossCount++;
+	// player loses if exceeds random number
+	if (totalScore > rdmNum) {
+		lossCount++;
+		alert("ha! " + totalScore + " doesn't equal " + rdmNum + ".");
 		$("#lossCount").html(lossCount);
 		resetNums();
 	}
-}
+};
 
 // generates new random numbers, updates score counter, resets totalScore
 function resetNums() {
 
+	totalScore = 0;
+
 	$("#randomNum").load("load", function() {
 	rdmNum = Math.floor((Math.random() * 102 + 19));     
-	$("#randomNum").html("<h1>" + rdmNum + "</h1>")              
+	$("#randomNum").html("<h1>" + rdmNum + "</h1>");              
 });
 
 
 // Assigns a random number between 1-12 to each crystal
 $("#rCrystal").load("load", function() {
 	rCrystal = Math.floor((Math.random() * 12) + 1);    
-    $("#rCrystal").html("<h1>" + rCrystal + "</h1>");
+    $("#rrCrystal").html("<h1>" + rCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#bbCrystal").load("load", function() {
+$("#bCrystal").load("load", function() {
 	bCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#bbCrystal").html("<h1>" + bCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#yyCrystal").load("load", function() {
+$("#yCrystal").load("load", function() {
 	yCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#yyCrystal").html("<h1>" + yCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
 
-$("#ggCrystal").load("load", function() {
+$("#gCrystal").load("load", function() {
 	gCrystal = Math.floor((Math.random() * 12) + 1);    
     $("#ggCrystal").html("<h1>" + gCrystal + "</h1>");
     // $("#rdmRedbelow").hide();
 });
+
+// change html
+$("#totalScore").html("<h1>" + totalScore + "</h1>");
 
 console.log(rCrystal);
 console.log(bCrystal);
